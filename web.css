@@ -19,7 +19,6 @@ html {
   box-sizing: border-box;
 }
 
-   /* ცენტრში განლაგება */
 .section__header {
   text-align: center;
   margin-bottom: 1rem;
@@ -370,7 +369,7 @@ h4 {
 .operations__content {
   display: none;
 
-  /* JUST PRESENTATIONAL */
+
   font-size: 1.7rem;
   padding: 2.5rem 7rem 6.5rem 7rem;
 }
@@ -710,14 +709,41 @@ h4 {
   opacity: 0;
 }
 
+
+
 /* COOKIE MESSAGE */
+
 .cookie-message {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background:white;
+  color: black;
+  padding: 1.5rem 2rem;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  background-color: white;
-  color: #bbb;
-  font-size: 1.5rem;
-  font-weight: 400;
+  gap: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.cookie-message p {
+  margin: 0;
+}
+
+.btn--close-cookie {
+  background: var(--color-primary);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  transition: background 0.2s;
+}
+
+.btn--close-cookie:hover {
+  background: var(--color-secondary);
 }
