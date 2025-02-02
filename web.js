@@ -34,25 +34,11 @@ document.addEventListener('keydown', function (e) {
 });
 
 btnScrollTo.addEventListener('click', function(e) {
-  /*
-  const s1coords = section1.getBoundingClientRect();
-  window.scrollTo({
-    left: s1coords.left + window.pageXOffset,
-    top: s1coords.top + window.pageYOffset,
-    behavior: 'smooth'
-  });
-  */
+
  section1.scrollIntoView({behavior: 'smooth'});
 });
 
-/*document.querySelectorAll('.nav__link').forEach(function(el) {
-  el.addEventListener('click', function(e) {
-    e.preventDefault();
-    const id = this.getAttribute('href');
-    console.log(id);
-    document.querySelector(id).scrollIntoView({behavior: 'smooth'});
-  })
-});*/
+
 
 document.querySelector('.nav__links').addEventListener('click', function(e) {
   e.preventDefault();
@@ -102,30 +88,7 @@ nav.addEventListener('mouseout', function() {
   });
   logo.classList.remove('op');
 });
-/*
-const initialCords = section1.getBoundingClientRect();
-window.addEventListener('scroll', function() {
-  if(window.scrollY > initialCords.top) {
-    nav.classList.add('sticky');
-  } else {
-    nav.classList.remove('sticky');
-  }
-});
-*/
 
-/*
-const obsCallback = function(entries, observer) {
-  entries.forEach(entry => {
-    console.log(entry);
-  })
-};
-const obsOptions = {
-  root: null,
-  threshold: 0.1
-}
-const observer = new IntersectionObserver();
-observer.observe(section1)
-*/
 
 
 const header = document.querySelector('.header');
@@ -158,7 +121,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 })
 allSections.forEach(function(section) {
   sectionObserver.observe(section);
-  //section.classList.add('section--hidden');
+
 });
 
 // lazy-loading images
@@ -193,11 +156,7 @@ const slider = function() {
   
   let currSlide = 0;
   const maxSlide = slides.length;
-  /*const slider = document.querySelector('.slider');
-  slider.style.transform = 'scale(0.4) translateX(-1300px)';
-  slider.style.overflow = 'visible';*/
-  
-  // 0% 100% 200% 300%
+ 
   //next slide
   
   const createDots = function() {
@@ -310,6 +269,25 @@ fetchData();
 
 
 
+// Cookie Message
+const cookieMessage = document.createElement('div');
+cookieMessage.classList.add('cookie-message');
+cookieMessage.innerHTML = `
+  <p>ეს ვებსაიტი იყენებს ქუქი-ფაილებს თქვენი გამოცდილების გასაუმჯობესებლად.</p>
+  <button class="btn btn--close-cookie">Accept</button>
+`;
+document.body.append(cookieMessage);
 
+// Accept Button
+document.querySelector('.btn--close-cookie').addEventListener('click', function () {
+  cookieMessage.style.opacity = '0';
+  setTimeout(() => cookieMessage.remove(), 300);
+  document.cookie = "cookiesAccepted=true; max-age=86400"; 
+});
+
+// Check if cookie is already accepted
+if (document.cookie.includes("cookiesAccepted=true")) {
+  cookieMessage.remove();
+}
 
 
