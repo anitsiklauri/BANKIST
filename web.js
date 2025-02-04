@@ -289,3 +289,7 @@ if (document.cookie.includes("cookiesAccepted=true")) {
 }
 
 
+
+document.querySelector(".burger-btn").addEventListener("click", function () {
+  document.querySelector(".burger-links").classList.toggle("show");
+});
