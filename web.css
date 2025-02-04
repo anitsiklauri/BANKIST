@@ -747,3 +747,64 @@ h4 {
 .btn--close-cookie:hover {
   background: var(--color-secondary);
 }
+
+/* ბურგერ მენიუს სტილი */
+.burger-menu {
+  display: none;
+  position: relative;
+}
+
+.burger-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  z-index: 1000;
+}
+
+.burger-links {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  list-style: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 200px;
+  z-index: 999;
+}
+
+.burger-links li {
+  margin: 10px 0;
+}
+
+.burger-links a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  text-align: center;
+}
+
+.burger-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.burger-links.show {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .burger-menu {
+    display: block;
+  }
+}
+
